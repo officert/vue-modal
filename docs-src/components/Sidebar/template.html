@@ -1,0 +1,51 @@
+<aside id="sidebar">
+  <ul>
+    <li>
+      <router-link activeClass="active" :to="{ name : 'Home' }">
+        Intro
+      </router-link>
+    </li>
+    <li>
+      <router-link activeClass="active" :to="{ name : 'Install' }">
+        Installation &amp; Usage
+      </router-link>
+    </li>
+    <li>
+      <router-link activeClass="active" :to="{ name : 'ModalResult' }">
+        Modal Result
+      </router-link>
+    </li>
+    <li>
+      <router-link activeClass="active" :to="{ name : 'Options' }">
+        Options
+      </router-link>
+    </li>
+    <li :class="{ 'active' : activeRoute.startsWith('Examples') }">
+      <router-link activeClass="active" :to="{ name : 'Examples' }">
+        Examples
+      </router-link>
+      <ul>
+        <li>
+          <router-link activeClass="active" :to="{ name : 'ExamplesOpenOn' }">
+            Open On
+          </router-link>
+        </li>
+        <li>
+          <router-link activeClass="active" :to="{ name : 'ExamplesWidth' }">
+            Width
+          </router-link>
+        </li>
+        <li>
+          <router-link activeClass="active" :to="{ name : 'ExamplesPassingData' }">
+            Passing Data
+          </router-link>
+        </li>
+        <li>
+          <router-link activeClass="active" :to="{ name : 'ExamplesStack' }">
+            Stacking
+          </router-link>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</aside>

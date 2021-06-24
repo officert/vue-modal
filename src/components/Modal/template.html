@@ -1,0 +1,15 @@
+<transition name="fadeIn">
+  <div class="vue2-modal-component clearfix">
+    <transition name="fadeIn">
+      <div class="vue2-modal-bg" @click="onBgClicked" :class="{ 'transparent' : !modalBgVisible }" :style="{ 'z-index' : modalTopVisibleZIndex }" v-if="modalsVisible && !modalBgRemoved">
+      </div>
+    </transition>
+    <transition-group class="vue2-modal-wrapper" tag="div" name="modalAnimation">
+      <div :id="modal.cssId" class="vue2-modal" :style="modal.styles" :class="getModalClasses(modal)" v-show="modal.visible" v-for="modal in modals" @click.stop :key="modal.id">
+        <keep-alive :include="[modal.keepAlive ? modal.componentName : '']">
+          <component :is="modal.inlineComponent ? modal.component : modal.componentName" v-bind="modal.props || {}" @closeModal="closeModal(modal, $event)"></component>
+        </keep-alive>
+      </div>
+    </transition-group>
+  </div>
+</transition>

@@ -1,0 +1,16 @@
+<div id="examples">
+  <h2>Setting modal width</h2>
+  <p>
+    Open modals on the left, right, top or bottom side using the <code>openOn</code> option:
+  </p>
+  <pre class="highlight">
+const modal = this.$showModal({
+    component: "modal-1",
+    width: {{ this.width }},
+    props: {}
+});</pre>
+  <input class="form-control" type="text" v-model="width" />
+  <button @click.prevent="showModal">
+    Show Modal
+  </button>
+</div>

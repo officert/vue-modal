@@ -1,0 +1,70 @@
+<div id="modal-result">
+  <h2>Modal Result</h2>
+  <p>
+    The <code>$showModal</code> method returns a <code>ModalResult</code> object.
+  </p>
+  <pre class="highlight">
+methods: {
+  showModal() {
+    const modalResult = this.$showModal({
+      component: 'your-component-name'
+    });
+  }
+}</pre>
+  <p>
+    The <code>ModalResult</code> object allows you to show and hide the modal programatically.
+  </p>
+  <p>
+    Just store the <code>ModalResult</code> to your Vue component and use a method to call <code>hide()</code>.
+  </p>
+  <pre class="highlight">
+methods: {
+  showModal() {
+    this.modalResult = this.$showModal({
+      component: 'your-component-name'
+    });
+  },
+  hideModal() {
+    this.modalResult.hide();
+  }
+}</pre>
+  <p>
+    You can also call <code>show()</code> to re-show a modal.
+  </p>
+  <pre class="highlight">
+methods: {
+  showModal() {
+    if (this.modalResult) {
+      this.modalResult.show();
+
+      return;
+    }
+
+    this.modalResult = this.$showModal({
+      component: 'your-component-name'
+    });
+  }
+}</pre>
+  <p>
+    The <code>ModalResult</code> object also contains a <code>promise</code> property, which is a <code>Promise</code>.
+  </p>
+  <p>
+    You can use this promise to receive data from your modal component.
+  </p>
+  <pre class="highlight">
+methods: {
+  showModal() {
+    const modalResult = this.$showModal({
+      component: 'your-component-name'
+    });
+
+    modalResult.promise
+      .then(result => {
+        //result is whatever you're modal component passes to <code>this.$emit("closeModal", {})</code>
+      });
+  }
+}</pre>
+  <p>
+    <router-link :to="{ name : 'ExamplesPassingData' }">Learn more about the passing data here.</router-link>
+  </p>
+</div>

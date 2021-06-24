@@ -1,0 +1,50 @@
+<div id="install">
+  <h2>Installation</h2>
+  <pre class="highlight">npm install vue2-modal --save-dev</pre>
+  <h2>Usage</h2>
+  <p>
+    1) Install the Vue Modal plugin:
+  </p>
+  <pre class="highlight">import Vue from 'vue';
+import VueModal from 'vue2-modal';
+
+Vue.use(VueModal);</pre>
+  <p>
+    2) In your HTML add the component:
+  </p>
+  <div class="highlight">
+    <pre class="highlight">&lt;modal&gt;&lt;/modal&gt;</pre>
+  </div>
+  <p>
+    3) Launch a modal from your component:
+  </p>
+  <pre class="highlight">
+methods: {
+  showModal() {
+    const modal1Handle = this.$showModal({
+      component : 'your-component-name',
+      props: {
+        //any data you want passed to your component
+      }
+    })
+
+    modal1Handle.promise
+      .then(result => {
+
+      });
+  }
+}
+</pre>
+  <div class="alert">
+    <p>
+      <code>'your-component-name'</code> just needs to be the name of a valid component that you have registered with Vue like this:
+      <code>Vue.component('your-component-name', {})</code>
+    </p>
+  </div>
+  <p>
+    The <code>$showModal()</code> method returns a <code>ModalResult</code> object.
+  </p>
+  <p>
+    <router-link :to="{ name : 'ModalResult' }">Learn more about the <code>ModalResult</code> object here.</router-link>
+  </p>
+</div>
